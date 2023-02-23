@@ -21,11 +21,20 @@ const getStockPrices = async () => {
 
 const makeResultList = (data) => {
   const companyPage = "./company.html?symbol=";
-
   for (const company of data) {
-    const aCompany = document.createElement("div");
-    aCompany.innerHTML = `<a href=${companyPage}${company.symbol} target="_blank"><div>${company.name} (${company.symbol})</div></a>`;
-    showResultList.appendChild(aCompany);
+    const companyInfoUrl = `${baseUrL}/api/v3/company/profile/${company.symbol}`;
+    fetch(companyInfoUrl)
+      .then((resp) => {
+        return resp.json();
+      })
+      .then((data) => {
+        console.log(data.profile.changesPercentage);
+        let percentage = data.profile.changesPercentage;
+        let image = data.profile.image;
+        const aCompany = document.createElement("div");
+        aCompany.innerHTML = `<a href=${companyPage}${company.symbol} target="_blank"><div>${company.name} (${company.symbol}) (${percentage}) <img src="${image}"</div></a>`;
+        showResultList.appendChild(aCompany);
+      });
   }
 };
 

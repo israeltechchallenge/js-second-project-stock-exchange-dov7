@@ -13,16 +13,13 @@ const getCompanyInfo = async () => {
 
   try {
     loaderIndicator();
-
     let response = await fetch(companyInfoUrl);
     const data = await response.json();
     presentCompanyInfo(data);
+    loaderIndicator();
   } catch (error) {
     console.log(error);
   }
-  loaderIndicator();
-
-  getCompanyHistory();
 };
 
 const getCompanyHistory = async () => {
@@ -87,3 +84,4 @@ const showCompanyHistory = (data) => {
 };
 
 getCompanyInfo();
+getCompanyHistory();
