@@ -20,6 +20,7 @@ const getStockPrices = async () => {
 };
 
 const makeResultList = (data) => {
+  showResultList.innerHTML = ''
   const companyPage = "./company.html?symbol=";
   for (const company of data) {
     const companyInfoUrl = `${baseUrL}/api/v3/company/profile/${company.symbol}`;
@@ -28,7 +29,6 @@ const makeResultList = (data) => {
         return resp.json();
       })
       .then((data) => {
-        console.log(data.profile.changesPercentage);
         let percentage = data.profile.changesPercentage;
         let image = data.profile.image;
         const aCompany = document.createElement("div");
