@@ -4,6 +4,8 @@ const getInput = document.getElementById("input");
 const getSearchBtn = document.getElementById("search");
 const showResultList = document.getElementById("result-list");
 const loadingSymbol = document.getElementById("loading");
+const errorsContainer = document.getElementById('errors')
+
 
 const loaderIndicator = () => {
   loadingSymbol.classList.toggle("visually-hidden");
@@ -20,7 +22,7 @@ const getStockPrices = async () => {
 };
 
 const makeResultList = (data) => {
-  showResultList.innerHTML = ''
+  showResultList.innerHTML = "";
   const companyPage = "./company.html?symbol=";
   for (const company of data) {
     const companyInfoUrl = `${baseUrL}/api/v3/company/profile/${company.symbol}`;

@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>stock exchange</title>
+    <link rel="stylesheet" href="./style/style.css" />
+
     <link rel="icon" href="./pic/icons8-stocks-50.png" />
 
-    <link rel="stylesheet" href="./marquee-style.css" />
     <script src="./script/global.js" defer></script>
     <script src="./script/main.js" defer></script>
     <script src="./script/marquee.js" defer></script>
@@ -20,12 +21,16 @@
     />
   </head>
   <body>
+    <div id="marquee">
     <div class="marquee-container">
-      <div class="marquee-text"></div>
     </div>
-    <div id="input-erea">
+      
+    </div>
+    <div id="input-erea" class="searchContainer">
       <input id="input" type="text" />
       <button id="search">Search</button>
+      <div id="errors"></div>
+
     </div>
     <div id="result-erea">
       <div id="loading" class="spinner-border visually-hidden"></div>
