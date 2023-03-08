@@ -30,8 +30,7 @@ class marqueeHandler {
     }
   };
 }
-const activeMarquee = new marqueeHandler(".marquee-container");
-activeMarquee.getMarquee();
+
 
 //using functions for marquee
 /* const marqueeContainer = document.querySelector(".marquee-container");
