@@ -44,3 +44,8 @@ ul {
     transform: translateX(-100%);
   }
 }
+
+#mark {
+  padding: 0;
+  background-color: rgb(210, 208, 208);
+}
